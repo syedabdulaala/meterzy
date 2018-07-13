@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Elevations-->
+    <dimen name="elev_s">10dp</dimen>
+
+    <!--Spacings-->
+    <dimen name="spacing_s">10dp</dimen>
+
+    <!--Radius-->
+    <dimen name="radius_s">10dp</dimen>
+
+    <!--Margins-->
+    <dimen name="margin_s">10dp</dimen>
+
+    <!--Padding-->
+    <dimen name="padding_s">10dp</dimen>
+
+    <!--Heights-->
+    <dimen name="height_s">10dp</dimen>
+    <dimen name="height_m">20dp</dimen>
+    <dimen name="height_l">30dp</dimen>
+    <dimen name="height_xl">40dp</dimen>
+    <dimen name="height_xxl">50dp</dimen>
+
+    <!--Sizes-->
+    <dimen name="size_menu_item_iv">75dp</dimen>
+</resources>
