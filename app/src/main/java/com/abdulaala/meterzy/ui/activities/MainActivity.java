@@ -1,18 +1,18 @@
 package com.abdulaala.meterzy.ui.activities;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.BaseActivity;
 import com.abdulaala.meterzy.ui.adapters.MenuGridAdapter;
+import com.abdulaala.meterzy.ui.fragments.MeterFragment;
 import com.abdulaala.meterzy.ui.models.MenuItemModel;
 
 public class MainActivity extends BaseActivity {
@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initMenuGridView() {
-        MenuItemModel[] menuItems = new MenuItemModel[6];
+        final MenuItemModel[] menuItems = new MenuItemModel[6];
         menuItems[0] = new MenuItemModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
         menuItems[1] = new MenuItemModel("Readings", ContextCompat.getDrawable(this, R.drawable.ic_reading));
         menuItems[2] = new MenuItemModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
@@ -37,6 +37,16 @@ public class MainActivity extends BaseActivity {
 
         GridView gv = findViewById(R.id.gv_menu);
         gv.setAdapter(new MenuGridAdapter(this, menuItems));
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i) {
+                    case 0:
+                        fragment.add(R.id.fl_main, new MeterFragment());
+                        break;
+                }
+            }
+        });
     }
 
     private void initMenuBottomSheet() {
@@ -57,6 +67,10 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    private void showMeterFragment() {
+
     }
 
     //UI Components
