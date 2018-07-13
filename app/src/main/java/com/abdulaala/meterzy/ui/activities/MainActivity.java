@@ -27,12 +27,13 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initMenuGridView() {
-        MenuItemModel[] menuItems = new MenuItemModel[5];
+        MenuItemModel[] menuItems = new MenuItemModel[6];
         menuItems[0] = new MenuItemModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
-        menuItems[1] = new MenuItemModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
-        menuItems[2] = new MenuItemModel("Settings", ContextCompat.getDrawable(this, R.drawable.ic_setting));
-        menuItems[3] = new MenuItemModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
-        menuItems[4] = new MenuItemModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
+        menuItems[1] = new MenuItemModel("Readings", ContextCompat.getDrawable(this, R.drawable.ic_reading));
+        menuItems[2] = new MenuItemModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
+        menuItems[3] = new MenuItemModel("Setting", ContextCompat.getDrawable(this, R.drawable.ic_setting));
+        menuItems[4] = new MenuItemModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
+        menuItems[5] = new MenuItemModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
 
         GridView gv = findViewById(R.id.gv_menu);
         gv.setAdapter(new MenuGridAdapter(this, menuItems));
@@ -45,7 +46,6 @@ public class MainActivity extends BaseActivity {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
         //Toggle
-        final ImageView ivMenuToggle = findViewById(R.id.iv_menu_toggle);
         CardView cvMenuToggle = findViewById(R.id.cv_menu_toggle);
         cvMenuToggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,20 +55,6 @@ public class MainActivity extends BaseActivity {
                 } else {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 }
-            }
-        });
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if(newState == BottomSheetBehavior.STATE_EXPANDED)
-                    ivMenuToggle.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_down_arrow_a));
-                else if(newState == BottomSheetBehavior.STATE_COLLAPSED)
-                    ivMenuToggle.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_up_arrow_a));
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
             }
         });
     }
