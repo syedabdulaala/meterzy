@@ -1,7 +1,9 @@
 package com.abdulaala.meterzy.ui.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.View;
@@ -12,11 +14,12 @@ import android.widget.LinearLayout;
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.BaseActivity;
 import com.abdulaala.meterzy.ui.adapters.MenuGridAdapter;
+import com.abdulaala.meterzy.ui.callbacks.ChangeMainContentCallback;
 import com.abdulaala.meterzy.ui.fragments.MeterFragment;
 import com.abdulaala.meterzy.ui.models.MenuItemModel;
+import com.abdulaala.meterzy.util.Constant;
 
-public class MainActivity extends BaseActivity {
-
+public class MainActivity extends BaseActivity implements ChangeMainContentCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,25 +29,29 @@ public class MainActivity extends BaseActivity {
         initMenuBottomSheet();
     }
 
+    @Override
+    public void changeMainContent(Fragment fragment) {
+        if(this.fragment.hasAny())
+            this.fragment.replace(R.id.fl_main, fragment);
+    }
+
     private void initMenuGridView() {
+
         final MenuItemModel[] menuItems = new MenuItemModel[6];
-        menuItems[0] = new MenuItemModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
-        menuItems[1] = new MenuItemModel("Readings", ContextCompat.getDrawable(this, R.drawable.ic_reading));
-        menuItems[2] = new MenuItemModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
-        menuItems[3] = new MenuItemModel("Setting", ContextCompat.getDrawable(this, R.drawable.ic_setting));
-        menuItems[4] = new MenuItemModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
-        menuItems[5] = new MenuItemModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
+        menuItems[Constant.MENU_DASHBOARD] = new MenuItemModel("Dashboard", ContextCompat.getDrawable(this, R.drawable.ic_dashboard));
+        menuItems[Constant.MENU_METERS] = new MenuItemModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
+        menuItems[Constant.MENU_TARIFFS] = new MenuItemModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
+        menuItems[Constant.MENU_SETTINGS] = new MenuItemModel("Setting", ContextCompat.getDrawable(this, R.drawable.ic_setting));
+        menuItems[Constant.MENU_ABOUT] = new MenuItemModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
+        menuItems[Constant.MENU_EXIT] = new MenuItemModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
 
         GridView gv = findViewById(R.id.gv_menu);
         gv.setAdapter(new MenuGridAdapter(this, menuItems));
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i) {
-                    case 0:
-                        fragment.add(R.id.fl_main, new MeterFragment());
-                        break;
-                }
+                changeMenu(i);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
     }
@@ -69,8 +76,25 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void showMeterFragment() {
-
+    private void changeMenu(int i) {
+        switch (i) {
+            case Constant.MENU_METERS:
+                MeterFragment meterFragment = new MeterFragment();
+                meterFragment.setChangeMainContentCallback(this);
+                changeMainContent(meterFragment);
+                break;
+            case Constant.MENU_EXIT:
+                dialog.setTitle("Exit Confirmation");
+                dialog.setMessage("Are you sure you want to close application?");
+                dialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setNegativeButton("NO", null);
+                dialog.show();
+        }
     }
 
     //UI Components
