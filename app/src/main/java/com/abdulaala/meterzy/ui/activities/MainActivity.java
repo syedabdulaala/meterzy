@@ -16,6 +16,7 @@ import com.abdulaala.meterzy.ui.BaseActivity;
 import com.abdulaala.meterzy.ui.adapters.MenuGridAdapter;
 import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
 import com.abdulaala.meterzy.ui.fragments.MeterFragment;
+import com.abdulaala.meterzy.ui.fragments.TariffFragment;
 import com.abdulaala.meterzy.ui.models.MenuItemModel;
 import com.abdulaala.meterzy.util.Constant;
 
@@ -76,6 +77,11 @@ public class MainActivity extends BaseActivity{
                 MeterFragment meterFragment = new MeterFragment();
                 meterFragment.setMainContentCallback(this);
                 replaceMainContent(meterFragment);
+                break;
+            case Constant.MENU_TARIFFS:
+                TariffFragment tariffFragment = new TariffFragment();
+                tariffFragment.setMainContentCallback(this);
+                replaceMainContent(tariffFragment);
                 break;
             case Constant.MENU_EXIT:
                 dialog.setTitle("Exit Confirmation");

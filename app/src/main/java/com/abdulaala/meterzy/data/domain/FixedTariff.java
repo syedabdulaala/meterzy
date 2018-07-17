@@ -10,7 +10,7 @@ import com.abdulaala.meterzy.util.Constant;
 @Entity(foreignKeys = @ForeignKey(entity = Tariff.class, parentColumns = "id",
         childColumns = "tariffId", onDelete = ForeignKey.CASCADE),
         indices = {@Index(value = {"tariffId"})})
-public class FixedTariff {
+public final class FixedTariff {
     public int getId() {
         return id;
     }
