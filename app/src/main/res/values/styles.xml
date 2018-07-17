@@ -3,6 +3,26 @@
         <item name="colorPrimary">@color/wedgewood</item>
         <item name="colorPrimaryDark">@color/atoll</item>
         <item name="colorAccent">@color/jumbo</item>
-        <item name="android:textColor">@color/jumbo</item>
+        
+        <item name="android:textColor">@color/cape_cod</item>
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="android:editTextStyle">@style/AppEditText</item>
+        <item name="editTextStyle">@style/AppEditText</item>
+
+        <item name="android:buttonStyle">@style/AppButton</item>
+        <item name="buttonStyle">@style/AppButton</item>
+    </style>
+
+    <style name="AppEditText" parent="android:Widget.EditText">
+        <item name="android:textColor">@color/cape_cod</item>
+        <item name="android:background">@drawable/bg_edittext</item>
+        <item name="android:textSize">7.5pt</item>
+    </style>
+
+    <style name="AppButton" parent="android:Widget.Button">
+        <item name="background">@drawable/bg_button</item>
+        <item name="android:textColor">@color/alabaster</item>
+        <item name="android:textSize">9pt</item>
     </style>
 </resources>

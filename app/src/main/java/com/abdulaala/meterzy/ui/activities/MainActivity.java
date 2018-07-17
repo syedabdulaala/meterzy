@@ -14,12 +14,12 @@ import android.widget.LinearLayout;
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.BaseActivity;
 import com.abdulaala.meterzy.ui.adapters.MenuGridAdapter;
-import com.abdulaala.meterzy.ui.callbacks.ChangeMainContentCallback;
+import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
 import com.abdulaala.meterzy.ui.fragments.MeterFragment;
 import com.abdulaala.meterzy.ui.models.MenuItemModel;
 import com.abdulaala.meterzy.util.Constant;
 
-public class MainActivity extends BaseActivity implements ChangeMainContentCallback {
+public class MainActivity extends BaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +27,6 @@ public class MainActivity extends BaseActivity implements ChangeMainContentCallb
 
         initMenuGridView();
         initMenuBottomSheet();
-    }
-
-    @Override
-    public void changeMainContent(Fragment fragment) {
-        if(this.fragment.hasAny())
-            this.fragment.replace(R.id.fl_main, fragment);
     }
 
     private void initMenuGridView() {
@@ -80,8 +74,8 @@ public class MainActivity extends BaseActivity implements ChangeMainContentCallb
         switch (i) {
             case Constant.MENU_METERS:
                 MeterFragment meterFragment = new MeterFragment();
-                meterFragment.setChangeMainContentCallback(this);
-                changeMainContent(meterFragment);
+                meterFragment.setMainContentCallback(this);
+                replaceMainContent(meterFragment);
                 break;
             case Constant.MENU_EXIT:
                 dialog.setTitle("Exit Confirmation");

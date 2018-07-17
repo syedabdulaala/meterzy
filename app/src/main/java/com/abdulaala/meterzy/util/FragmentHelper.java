@@ -10,7 +10,6 @@ public class FragmentHelper {
 
     public FragmentHelper(FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
-        this.fragmentTransaction = fragmentManager.beginTransaction();
     }
 
     public FragmentTransaction toBackStack(String name) {
@@ -19,20 +18,39 @@ public class FragmentHelper {
     }
 
     public void add(int layoutId, Fragment fragment) {
+        tryInitTransaction();
         fragmentTransaction.add(layoutId, fragment);
         fragmentTransaction.commit();
+        fragmentTransaction = null;
     }
 
     public void replace(int layoutId, Fragment fragment) {
+        tryInitTransaction();
         fragmentTransaction.replace(layoutId, fragment);
         fragmentTransaction.commit();
+        fragmentTransaction = null;
     }
 
     public boolean hasAny() {
         List<Fragment> fragment = fragmentManager.getFragments();
-        return (fragment != null && fragment.size() <= 0);
+        return (fragment != null && fragment.size() > 0);
     }
 
-    private final FragmentTransaction fragmentTransaction;
+    public FragmentTransaction addToBackStack(String name) {
+        fragmentTransaction.addToBackStack(name);
+        return fragmentTransaction;
+    }
+
+    public void popBackStack(String name) {
+        fragmentManager.popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    private void tryInitTransaction() {
+        if(this.fragmentTransaction == null)
+            this.fragmentTransaction = fragmentManager.beginTransaction();
+    }
+
+
+    private FragmentTransaction fragmentTransaction;
     private final FragmentManager fragmentManager;
 }
