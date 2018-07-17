@@ -7,4 +7,6 @@ public class Constant {
     public static final int MENU_SETTINGS = 3;
     public static final int MENU_ABOUT = 4;
     public static final int MENU_EXIT = 5;
+
+    public enum TariffType { Percent, Fixed }
 }
