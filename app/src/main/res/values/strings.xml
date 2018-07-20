@@ -15,4 +15,8 @@
     <string name="lb_save">Save</string>
     <string name="lb_cancel">Cancel</string>
     <string name="lb_currency">Currency</string>
+    <string name="lb_advance">Advance</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

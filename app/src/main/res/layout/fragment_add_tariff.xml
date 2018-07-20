@@ -26,6 +26,14 @@
             android:layout_marginBottom="@dimen/margin_s"
             android:hint="@string/lb_consumer_no" />
 
+        <Button
+            android:id="@+id/btn_advance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_button"
+            android:text="@string/lb_advance" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
