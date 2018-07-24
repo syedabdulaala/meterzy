@@ -3,12 +3,12 @@ package com.abdulaala.meterzy.ui.adapters;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.abdulaala.meterzy.ui.fragments.FixedTariffFragment;
 import com.abdulaala.meterzy.ui.fragments.RangeTariffFragment;
 
-public class TariffViewPagerAdapter extends FragmentPagerAdapter {
+public class TariffViewPagerAdapter extends FragmentStatePagerAdapter {
     private final int tabCount = 2;
 
     public TariffViewPagerAdapter(FragmentManager fm) {

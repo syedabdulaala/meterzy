@@ -38,12 +38,7 @@ public class FixedTariffFragment extends Fragment {
 
         final ListView lvRangeTariff = view.findViewById(R.id.lv_fixed_tariff);
         List<FixedTariffItemModel> fixedTariffs = new ArrayList<>();
-        fixedTariffs.add(new FixedTariffItemModel(0, "Electric Duty", 1.5f, Constant.TariffType.Percent));
-        fixedTariffs.add(new FixedTariffItemModel(0, "GST", 17.25f, Constant.TariffType.Percent));
-        fixedTariffs.add(new FixedTariffItemModel(0, "TVL License Fee", 35.0f, Constant.TariffType.Fixed));
-        fixedTariffs.add(new FixedTariffItemModel(0, "Meter Rent", 7.5f, Constant.TariffType.Fixed));
-        fixedTariffs.add(new FixedTariffItemModel(0, "Bank Charges", 8.0f, Constant.TariffType.Fixed));
-        final FixedTariffListAdapter fixedTariffListAdapter = new FixedTariffListAdapter(getContext(), fixedTariffs, true);
+        final FixedTariffListAdapter fixedTariffListAdapter = new FixedTariffListAdapter(getContext(), null, true);
         lvRangeTariff.setAdapter(fixedTariffListAdapter);
 
         FloatingActionButton fabAddRangeTariff = view.findViewById(R.id.fab_add_fixed_tariff);

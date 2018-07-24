@@ -33,12 +33,12 @@ public class FixedTariffListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return fixedTariffs.get(i);
+        return fixedTariffs != null ? fixedTariffs.get(i) : null;
     }
 
     @Override
     public long getItemId(int i) {
-        return fixedTariffs.get(i).getId();
+        return fixedTariffs != null ? fixedTariffs.get(i).getId() : 0;
     }
 
     @Override

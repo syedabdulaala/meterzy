@@ -33,11 +33,7 @@ public class TariffFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ListView lvTariff = view.findViewById(R.id.lv_tariff);
-        TariffItemModel[] tariffs = new TariffItemModel[3];
-        tariffs[0] = new TariffItemModel(1, "Electric");
-        tariffs[1] = new TariffItemModel(2, "Gas");
-        tariffs[2] = new TariffItemModel(3, "Sewerage");
-        lvTariff.setAdapter(new TariffListAdapter(getContext(), mainContentCallback, tariffs));
+        lvTariff.setAdapter(new TariffListAdapter(getContext(), mainContentCallback, null));
 
         FloatingActionButton fabAddMeter = view.findViewById(R.id.fab_add_tariff);
         fabAddMeter.setOnClickListener(new View.OnClickListener() {

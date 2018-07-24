@@ -13,8 +13,14 @@ import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
 import com.abdulaala.meterzy.ui.models.TariffItemModel;
 
+import java.util.List;
+
 public class TariffListAdapter extends BaseAdapter {
-    public TariffListAdapter(Context context, MainContentCallback mainContentCallback, TariffItemModel[] tariffs) {
+    private final Context context;
+    private final MainContentCallback MainContentCallback;
+    private List<TariffItemModel> tariffs;
+
+    public TariffListAdapter(Context context, MainContentCallback mainContentCallback, List<TariffItemModel> tariffs) {
         this.context = context;
         this.MainContentCallback = mainContentCallback;
         this.tariffs = tariffs;
@@ -22,17 +28,17 @@ public class TariffListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return tariffs.length;
+        return tariffs != null ? tariffs.size() : 0;
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return tariffs != null ? tariffs.get(i) : null;
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return tariffs != null ? tariffs.get(i).getId() : 0;
     }
 
     @Override
@@ -44,12 +50,8 @@ public class TariffListAdapter extends BaseAdapter {
         view = inflater.inflate(R.layout.item_tariff, null);
 
         TextView tvTariff = view.findViewById(R.id.tv_tariff);
-        tvTariff.setText(tariffs[i].getName());
+        tvTariff.setText(tariffs.get(i).getName());
 
         return view;
     }
-
-    private final Context context;
-    private final MainContentCallback MainContentCallback;
-    private TariffItemModel[] tariffs;
 }

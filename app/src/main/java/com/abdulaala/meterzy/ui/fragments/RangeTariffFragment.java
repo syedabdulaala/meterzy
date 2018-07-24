@@ -33,15 +33,7 @@ public class RangeTariffFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         final ListView lvRangeTariff = view.findViewById(R.id.lv_range_tariff);
-        List<RangeTariffItemModel> rangeTariffs = new ArrayList<>();
-        rangeTariffs.add(new RangeTariffItemModel(0, "Variable 1-100", 1, 100, 5.79f, Constant.TariffType.Percent));
-        rangeTariffs.add(new RangeTariffItemModel(0, "Variable 101-200", 101, 200, 8.11f, Constant.TariffType.Percent));
-        rangeTariffs.add(new RangeTariffItemModel(0, "Variable 201-300", 201, 300, 10.20f, Constant.TariffType.Percent));
-        rangeTariffs.add(new RangeTariffItemModel(0, "Variable 301-700", 301, 700, 15.45f, Constant.TariffType.Percent));
-        rangeTariffs.add(new RangeTariffItemModel(0, "Variable 700+", 701, 700, 17.33f, Constant.TariffType.Percent));
-        rangeTariffs.add(new RangeTariffItemModel(0, "Surcharge 301-700", 301, 700, 0.55f, Constant.TariffType.Percent));
-        rangeTariffs.add(new RangeTariffItemModel(0, "Surcharge 700+", 701, 700, 0.66f, Constant.TariffType.Percent));
-        final RangeTariffListAdapter rangeTariffListAdapter = new RangeTariffListAdapter(getContext(), rangeTariffs, true);
+        final RangeTariffListAdapter rangeTariffListAdapter = new RangeTariffListAdapter(getContext(), null, true);
         lvRangeTariff.setAdapter(rangeTariffListAdapter);
 
         FloatingActionButton fabAddRangeTariff = view.findViewById(R.id.fab_add_range_tariff);

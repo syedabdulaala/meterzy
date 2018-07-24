@@ -20,8 +20,7 @@ public class RangeTariffListAdapter extends BaseAdapter {
     private final boolean editMode;
     private List<RangeTariffItemModel> rangeTariffs;
 
-    public RangeTariffListAdapter(Context context, List<RangeTariffItemModel> data, boolean editMode)
-    {
+    public RangeTariffListAdapter(Context context, List<RangeTariffItemModel> data, boolean editMode) {
         this.context = context;
         this.rangeTariffs = data;
         this.editMode = editMode;
@@ -34,19 +33,19 @@ public class RangeTariffListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return rangeTariffs.get(i);
+        return rangeTariffs != null ? rangeTariffs.get(i) : null;
     }
 
     @Override
     public long getItemId(int i) {
-        return rangeTariffs.get(i).getId();
+        return rangeTariffs != null ? rangeTariffs.get(i).getId() : 0;
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if(view == null)
+        if (view == null)
             view = new View(context);
         view = inflater.inflate(R.layout.item_range_tariff, null);
 
@@ -58,28 +57,25 @@ public class RangeTariffListAdapter extends BaseAdapter {
         RadioButton rbPercentCharges = view.findViewById(R.id.rb_percent_charges);
 
         RangeTariffItemModel rangeTariff = rangeTariffs.get(i);
-        if(editMode)
-        {
+        if (editMode) {
             etName.setText(rangeTariff.getName());
             etStartRange.setText(String.valueOf(rangeTariff.getStartRange()));
             etEndRange.setText(String.valueOf(rangeTariff.getEndRange()));
             etCharges.setText(String.valueOf(rangeTariff.getCharges()));
-            if(rangeTariff.getType() == Constant.TariffType.Fixed) {
+            if (rangeTariff.getType() == Constant.TariffType.Fixed) {
                 rbFixedCharges.setChecked(true);
                 rbPercentCharges.setChecked(false);
-            }
-            else {
+            } else {
                 rbPercentCharges.setChecked(true);
                 rbFixedCharges.setChecked(false);
             }
-        }
-        else {
+        } else {
             rangeTariff.setId(0);
             rangeTariff.setName(etName.getText().toString());
             rangeTariff.setStartRange(Float.parseFloat(etStartRange.getText().toString()));
             rangeTariff.setEndRange(Float.parseFloat(etEndRange.getText().toString()));
             rangeTariff.setCharges(Float.parseFloat(etCharges.getText().toString()));
-            if(rbFixedCharges.isChecked())
+            if (rbFixedCharges.isChecked())
                 rangeTariff.setType(Constant.TariffType.Fixed);
             else
                 rangeTariff.setType(Constant.TariffType.Percent);
@@ -89,7 +85,7 @@ public class RangeTariffListAdapter extends BaseAdapter {
     }
 
     public void addNew() {
-        if(rangeTariffs == null)
+        if (rangeTariffs == null)
             rangeTariffs = new ArrayList<>();
         rangeTariffs.add(new RangeTariffItemModel());
         notifyDataSetChanged();
