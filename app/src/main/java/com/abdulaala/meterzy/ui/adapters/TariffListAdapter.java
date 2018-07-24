@@ -41,7 +41,7 @@ public class TariffListAdapter extends BaseAdapter {
 
         if(view == null)
             view = new View(context);
-        view = inflater.inflate(R.layout.item_meter, null);
+        view = inflater.inflate(R.layout.item_tariff, null);
 
         TextView tvTariff = view.findViewById(R.id.tv_tariff);
         tvTariff.setText(tariffs[i].getName());

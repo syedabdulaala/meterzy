@@ -27,12 +27,12 @@ public final class FixedTariff {
         this.tariffId = tariffId;
     }
 
-    public float getAmount() {
-        return amount;
+    public float getCharges() {
+        return charges;
     }
 
-    public void setAmount(float amount) {
-        this.amount = amount;
+    public void setCharges(float charges) {
+        this.charges = charges;
     }
 
     public String getName() {
@@ -54,7 +54,7 @@ public final class FixedTariff {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int tariffId;
-    private float amount;
+    private float charges;
     private String name;
     private Constant.TariffType type;
 }
