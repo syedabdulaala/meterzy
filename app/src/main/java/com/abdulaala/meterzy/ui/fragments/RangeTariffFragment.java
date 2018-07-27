@@ -24,7 +24,7 @@ public class RangeTariffFragment extends Fragment {
     //Variable(s)
     private RangeTariffRVAdapter rangeTariffRVAdapter;
     private List<RangeTariffModel> rangeTariffs;
-    private int currentTariffId = -1;
+    private int tariffId;
 
     //Ui Component(s)
     private RecyclerView rvRangeTariff;
@@ -76,19 +76,23 @@ public class RangeTariffFragment extends Fragment {
         return rangeTariffs;
     }
 
-    public void setCurrentTariffId(int currentTariffId) {
-        this.currentTariffId = currentTariffId;
+    public void setTariffId(int tariffId) {
+        this.tariffId = tariffId;
     }
 
     private List<RangeTariffModel> getRangeTariffsFromDb() {
-        List<RangeTariff> rangeTariffs = DataService.getAppDb()
-                .rangeTariffRepo()
-                .getAll(currentTariffId);
         List<RangeTariffModel> data = new ArrayList<>();
-        for (RangeTariff tariff : rangeTariffs) {
-            data.add(new RangeTariffModel(tariff.getId(), tariff.getName(), tariff.getStartRange(),
-                    tariff.getEndRange(), tariff.getCharges(), tariff.getType()));
+
+        if(tariffId != -1) {
+            List<RangeTariff> rangeTariffs = DataService.getAppDb()
+                    .rangeTariffRepo()
+                    .getAll(tariffId);
+            for (RangeTariff tariff : rangeTariffs) {
+                data.add(new RangeTariffModel(tariff.getId(), tariff.getName(), tariff.getStartRange(),
+                        tariff.getEndRange(), tariff.getCharges(), tariff.getType()));
+            }
         }
+
         if (data.size() == 0)
             data.add(new RangeTariffModel());
         return data;

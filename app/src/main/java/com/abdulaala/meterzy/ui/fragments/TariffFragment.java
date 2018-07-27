@@ -23,11 +23,14 @@ import com.abdulaala.meterzy.ui.adapters.TariffVPAdapter;
 import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
 import com.abdulaala.meterzy.ui.models.FixedTariffModel;
 import com.abdulaala.meterzy.ui.models.RangeTariffModel;
+import com.abdulaala.meterzy.ui.models.TariffModel;
+import com.abdulaala.meterzy.util.BundleKey;
 
 public class TariffFragment extends Fragment {
     //Variable(s)
     private MainContentCallback mainContentCallback;
     private TariffVPAdapter vpTariffAdapter;
+    private TariffModel tariff;
 
     //Ui Component(s)
     private TabLayout tlTariff;
@@ -59,39 +62,45 @@ public class TariffFragment extends Fragment {
         btnCancel = view.findViewById(R.id.btn_cancel);
         btnSave = view.findViewById(R.id.btn_save);
 
-        initTab();
-        initBtnCancel();
-        initBtnSave();
+        if(getArguments() != null)
+            populateData(getArguments().getInt(BundleKey.TARIFF_ID));
+        initAdapters();
+        initListeners();
     }
 
-    private void initTab() {
-        vpTariffAdapter = new TariffVPAdapter(getActivity().getSupportFragmentManager());
+    public void setMainContentCallback(MainContentCallback mainContentCallback) {
+        this.mainContentCallback = mainContentCallback;
+    }
+
+    private void initAdapters() {
+        vpTariffAdapter = new TariffVPAdapter(getActivity().getSupportFragmentManager(),
+                tariff != null ? tariff.getId() : -1);
         vpTariff.setAdapter(vpTariffAdapter);
         tlTariff.setupWithViewPager(vpTariff);
     }
 
-    private void initBtnCancel() {
+    private void initListeners() {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadTariffFragment();
             }
         });
-    }
 
-    private void initBtnSave() {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadTariffFragment();
                 saveToDb();
-                Toast.makeText(getContext(),"Saved!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Saved!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void setMainContentCallback(MainContentCallback mainContentCallback) {
-        this.mainContentCallback = mainContentCallback;
+    private void populateData(int tariffId) {
+        tariff = getTariffFromDb(tariffId);
+        etName.setText(tariff.getName());
+        etCurrency.setText(tariff.getCurrency());
     }
 
     private void loadTariffFragment() {
@@ -104,9 +113,9 @@ public class TariffFragment extends Fragment {
         int tariffId = (int) DataService.getAppDb().tariffRepo()
                 .insert(new Tariff(0, etName.getText().toString(), etCurrency.getText().toString()));
 
-        for(RangeTariffModel tariff : vpTariffAdapter.getRangeTariffs()) {
+        for (RangeTariffModel tariff : vpTariffAdapter.getRangeTariffs()) {
             DataService.getAppDb().rangeTariffRepo()
-                    .insert(new RangeTariff(0,tariffId,tariff.getStartRange(),tariff.getEndRange(),
+                    .insert(new RangeTariff(0, tariffId, tariff.getStartRange(), tariff.getEndRange(),
                             tariff.getCharges(), tariff.getName(), tariff.getType()));
         }
 
@@ -114,5 +123,13 @@ public class TariffFragment extends Fragment {
             DataService.getAppDb().fixedTariffRepo()
                     .insert(new FixedTariff(0, tariffId, tariff.getCharges(), tariff.getName(), tariff.getType()));
         }
+    }
+
+    private TariffModel getTariffFromDb(int tariffId) {
+        Tariff tariff = DataService.getAppDb()
+                .tariffRepo()
+                .get(tariffId);
+
+        return new TariffModel(tariff.getId(), tariff.getName(), tariff.getCurrency());
     }
 }

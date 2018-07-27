@@ -25,7 +25,7 @@ public class FixedTariffFragment extends Fragment {
     //Variable(s)
     private FixedTariffRVAdapter fixedTariffRVAdapter;
     private List<FixedTariffModel> fixedTariffs;
-    private int currentTariffId = -1;
+    private int tariffId = -1;
 
     //Ui Component(s)
     private RecyclerView rvFixedTariff;
@@ -78,18 +78,22 @@ public class FixedTariffFragment extends Fragment {
         return fixedTariffs;
     }
 
-    public void setCurrentTariffId(int currentTariffId) {
-        this.currentTariffId = currentTariffId;
+    public void setTariffId(int tariffId) {
+        this.tariffId = tariffId;
     }
 
     private List<FixedTariffModel> getFixedTariffsFromDb() {
-        List<FixedTariff> fixedTariffs = DataService.getAppDb()
-                .fixedTariffRepo()
-                .getAll(currentTariffId);
         List<FixedTariffModel> data = new ArrayList<>();
-        for (FixedTariff tariff : fixedTariffs) {
-            data.add(new FixedTariffModel(tariff.getId(), tariff.getName(), tariff.getCharges(), tariff.getType()));
+
+        if(tariffId != -1) {
+            List<FixedTariff> fixedTariffs = DataService.getAppDb()
+                    .fixedTariffRepo()
+                    .getAll(tariffId);
+            for (FixedTariff tariff : fixedTariffs) {
+                data.add(new FixedTariffModel(tariff.getId(), tariff.getName(), tariff.getCharges(), tariff.getType()));
+            }
         }
+
         if(data.size() == 0)
             data.add(new FixedTariffModel());
         return  data;

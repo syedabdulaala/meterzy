@@ -1,9 +1,13 @@
 package com.abdulaala.meterzy.ui.models;
 
 public class TariffModel {
-    public TariffModel(int id, String name) {
+    public TariffModel() {
+    }
+
+    public TariffModel(int id, String name, String currency) {
         this.id = id;
         this.name = name;
+        this.currency = currency;
     }
 
     public int getId() {
@@ -22,6 +26,15 @@ public class TariffModel {
         this.name = name;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     private int id;
     private String name;
+    private String currency;
 }

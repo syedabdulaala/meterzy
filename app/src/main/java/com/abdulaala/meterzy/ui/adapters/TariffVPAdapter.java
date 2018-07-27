@@ -19,11 +19,17 @@ public class TariffVPAdapter extends FragmentStatePagerAdapter {
     private Map<Integer, Fragment> fragmentMap;
 
     //Constructor(s)
-    public TariffVPAdapter(FragmentManager fm) {
+    public TariffVPAdapter(FragmentManager fm, int tariffId) {
         super(fm);
         fragmentMap = new HashMap<>();
-        fragmentMap.put(0, new FixedTariffFragment());
-        fragmentMap.put(1, new RangeTariffFragment());
+
+        FixedTariffFragment fixedTariffFragment = new FixedTariffFragment();
+        fixedTariffFragment.setTariffId(tariffId);
+        fragmentMap.put(0, fixedTariffFragment);
+
+        RangeTariffFragment rangeTariffFragment = new RangeTariffFragment();
+        rangeTariffFragment.setTariffId(tariffId);
+        fragmentMap.put(1, rangeTariffFragment);
     }
 
     //Function(s)
