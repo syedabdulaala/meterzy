@@ -45,13 +45,6 @@ public class MeterLVAdapter extends BaseAdapter {
 
         TextView tvMeter = view.findViewById(R.id.tv_meter);
         tvMeter.setText(meters[i].getName());
-        ImageButton ibMeterReading = view.findViewById(R.id.ib_meter_reading);
-        ibMeterReading.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, "This will show readings", Toast.LENGTH_SHORT);
-            }
-        });
 
         return view;
     }

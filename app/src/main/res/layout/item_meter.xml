@@ -15,28 +15,27 @@
 
         <ImageView
             android:id="@+id/iv_1"
-            android:layout_width="@dimen/size_menu_item_iv_s"
-            android:layout_height="@dimen/size_menu_item_iv_s"
+            android:layout_width="@dimen/size_ic_l"
+            android:layout_height="@dimen/size_ic_l"
             android:src="@drawable/ic_meter" />
 
         <TextView
             android:id="@+id/tv_meter"
             android:padding="@dimen/padding_s"
             android:layout_toEndOf="@id/iv_1"
-            android:layout_toStartOf="@id/ib_meter_reading"
+            android:layout_toStartOf="@id/iv_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="@string/dummy_item_name" />
 
-        <ImageButton
-            android:id="@+id/ib_meter_reading"
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="@dimen/size_ic_m"
+            android:layout_height="@dimen/size_ic_m"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_width="@dimen/size_menu_item_iv_xs"
-            android:layout_height="@dimen/size_menu_item_iv_xs"
-            android:src="@drawable/ic_reading"
-            android:scaleType="centerCrop"
-            android:backgroundTint="@color/alabaster"/>
+            android:layout_marginEnd="@dimen/margin_s"
+            android:src="@drawable/ic_delete" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>
