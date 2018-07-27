@@ -62,7 +62,7 @@ public class TariffFragment extends Fragment {
         btnCancel = view.findViewById(R.id.btn_cancel);
         btnSave = view.findViewById(R.id.btn_save);
 
-        if(getArguments() != null)
+        if (getArguments() != null)
             populateData(getArguments().getInt(BundleKey.TARIFF_ID));
         initAdapters();
         initListeners();
@@ -110,8 +110,19 @@ public class TariffFragment extends Fragment {
     }
 
     private void saveToDb() {
-        int tariffId = (int) DataService.getAppDb().tariffRepo()
-                .insert(new Tariff(0, etName.getText().toString(), etCurrency.getText().toString()));
+        int tariffId;
+        if (tariff != null) {
+            tariffId = tariff.getId();
+            DataService.getAppDb().tariffRepo()
+                    .update(new Tariff(tariff.getId(), etName.getText().toString(), etCurrency.getText().toString()));
+            DataService.getAppDb().fixedTariffRepo()
+                    .deleteAll(tariffId);
+            DataService.getAppDb().rangeTariffRepo()
+                    .deleteAll(tariffId);
+        } else {
+            tariffId = (int) DataService.getAppDb().tariffRepo()
+                    .insert(new Tariff(0, etName.getText().toString(), etCurrency.getText().toString()));
+        }
 
         for (RangeTariffModel tariff : vpTariffAdapter.getRangeTariffs()) {
             DataService.getAppDb().rangeTariffRepo()

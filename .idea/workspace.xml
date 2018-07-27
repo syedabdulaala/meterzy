@@ -20,12 +20,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/adapters/TariffVPAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/adapters/TariffVPAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/FixedTariffRepo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/FixedTariffRepo.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/RangeTariffRepo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/RangeTariffRepo.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/FixedTariffFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/FixedTariffFragment.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/RangeTariffFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/RangeTariffFragment.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffListFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/models/TariffModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/models/TariffModel.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,7 +60,48 @@
     <favorites_list name="meterzy" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="TariffFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="122" column="38" lean-forward="false" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="38" />
+              <folding>
+                <element signature="method#TariffFragment#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#onCreateView#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#onViewCreated#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#setMainContentCallback#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#initAdapters#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#initListeners#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#populateData#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#loadTariffFragment#0;class#TariffFragment#0" expanded="false" />
+                <element signature="method#getTariffFromDb#0;class#TariffFragment#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FixedTariffRepo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/FixedTariffRepo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="29" column="62" lean-forward="false" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/AppDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -3897,9 +3938,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_meter.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_fixed_tariff.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_range_tariff.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/adapters/TariffListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/adapters/TariffViewPagerAdapter.java" />
@@ -3941,12 +3979,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/adapters/TariffVPAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/AddTariffFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/FixedTariffFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/adapters/TariffVPAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/RangeTariffFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/models/TariffModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/util/BundleKey.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/RangeTariffFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/FixedTariffFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/TariffRepo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/RangeTariffRepo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/FixedTariffRepo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java" />
       </list>
     </option>
@@ -4063,7 +4104,7 @@
     <property name="device.picker.selection" value="Pixel_API_25" />
     <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="android.profiler.active" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Yashab/src/meterzy/app/src/main/java/com/abdulaala/meterzy/ui/activities/MainActivity.java" />
+    <property name="SearchEverywhereHistoryKey" value="FixedTar&#9;PSI&#9;JAVA://com.abdulaala.meterzy.data.Repo.FixedTariffRepo&#10;RangeTariffRe&#9;PSI&#9;JAVA://com.abdulaala.meterzy.data.Repo.RangeTariffRepo" />
     <property name="ToolWindowFavorites.ShowToolbar" value="false" />
   </component>
   <component name="RecentsManager">
@@ -4273,6 +4314,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32914925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4288,7 +4330,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23586118" sideWeight="0.49411765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23586118" sideWeight="0.49411765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Sympli" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4736504" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4352,28 +4394,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/util/FragmentHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_edittext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/util/Converter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -4511,14 +4536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/AppDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -4537,13 +4554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="100" lean-forward="false" selection-start-line="17" selection-start-column="100" selection-end-line="17" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/TariffRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -4601,6 +4611,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="22" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -4618,6 +4629,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding>
+            <element signature="e#889#906#0" expanded="false" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -4636,6 +4650,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+          <folding>
+            <element signature="e#1061#1078#0" expanded="false" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -4646,6 +4663,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -4695,27 +4713,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/FixedTariffFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="96" column="8" lean-forward="false" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/RangeTariffFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
-          <folding>
-            <element signature="method#onCreateView#0;class#RangeTariffFragment#0" expanded="false" />
-            <element signature="method#onViewCreated#0;class#RangeTariffFragment#0" expanded="false" />
-            <element signature="method#initRvRangeTariff#0;class#RangeTariffFragment#0" expanded="false" />
-            <element signature="method#initFabAddRangeTariff#0;class#RangeTariffFragment#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/domain/Tariff.java">
@@ -4784,26 +4781,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+        <state relative-caret-position="493">
+          <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
           <folding>
-            <element signature="method#TariffFragment#0;class#TariffFragment#0" expanded="false" />
-            <element signature="method#setMainContentCallback#0;class#TariffFragment#0" expanded="false" />
-            <element signature="method#loadTariffFragment#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#TariffListFragment#0;class#TariffListFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#TariffListFragment#0" expanded="false" />
+            <element signature="method#onViewCreated#0;class#TariffListFragment#0" expanded="false" />
+            <element signature="method#setMainContentCallback#0;class#TariffListFragment#0" expanded="false" />
+            <element signature="method#initListeners#0;class#TariffListFragment#0" expanded="false" />
+            <element signature="method#getTariffFromDb#0;class#TariffListFragment#0" expanded="false" />
+            <element signature="method#loadTariffFragment#0;class#TariffListFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffListFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/RangeTariffFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="892">
-          <caret line="100" column="40" lean-forward="false" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+        <state relative-caret-position="433">
+          <caret line="63" column="29" lean-forward="false" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
           <folding>
-            <element signature="method#TariffListFragment#0;class#TariffListFragment#0" expanded="false" />
-            <element signature="method#setMainContentCallback#0;class#TariffListFragment#0" expanded="false" />
-            <element signature="method#initUiComponents#0;class#TariffListFragment#0" expanded="false" />
+            <element signature="method#RangeTariffFragment#0;class#RangeTariffFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#RangeTariffFragment#0" expanded="false" />
+            <element signature="method#onViewCreated#0;class#RangeTariffFragment#0" expanded="false" />
+            <element signature="method#initAdapters#0;class#RangeTariffFragment#0" expanded="false" />
+            <element signature="method#initListeners#0;class#RangeTariffFragment#0" expanded="false" />
+            <element signature="method#getRangeTariffsFromDb#0;class#RangeTariffFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/FixedTariffFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="63" column="29" lean-forward="false" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+          <folding>
+            <element signature="method#FixedTariffFragment#0;class#FixedTariffFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#FixedTariffFragment#0" expanded="false" />
+            <element signature="method#onViewCreated#0;class#FixedTariffFragment#0" expanded="false" />
+            <element signature="method#initAdapters#0;class#FixedTariffFragment#0" expanded="false" />
+            <element signature="method#initListeners#0;class#FixedTariffFragment#0" expanded="false" />
+            <element signature="method#getFixedTariffsFromDb#0;class#FixedTariffFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/TariffRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/AppDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/RangeTariffRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/data/Repo/FixedTariffRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="62" lean-forward="false" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/abdulaala/meterzy/ui/fragments/TariffFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="122" column="38" lean-forward="false" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="38" />
+          <folding>
+            <element signature="method#TariffFragment#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#onViewCreated#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#setMainContentCallback#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#initAdapters#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#initListeners#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#populateData#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#loadTariffFragment#0;class#TariffFragment#0" expanded="false" />
+            <element signature="method#getTariffFromDb#0;class#TariffFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>

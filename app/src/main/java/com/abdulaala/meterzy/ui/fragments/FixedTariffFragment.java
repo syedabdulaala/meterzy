@@ -48,22 +48,20 @@ public class FixedTariffFragment extends Fragment {
         rvFixedTariff = view.findViewById(R.id.rv_fixed_tariff);
         fabAddRangeTariff = view.findViewById(R.id.fab_add_fixed_tariff);
 
-        initRvFixedTariff();
-        initFabAddFixedTariff();
+        initAdapters();
+        initListeners();
     }
 
-    public void initRvFixedTariff() {
+    public void initAdapters() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvFixedTariff.setLayoutManager(layoutManager);
-
         fixedTariffs = getFixedTariffsFromDb();
-
         fixedTariffRVAdapter = new FixedTariffRVAdapter(getContext(), fixedTariffs);
         rvFixedTariff.setAdapter(fixedTariffRVAdapter);
     }
 
-    public void initFabAddFixedTariff() {
+    public void initListeners() {
         fabAddRangeTariff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

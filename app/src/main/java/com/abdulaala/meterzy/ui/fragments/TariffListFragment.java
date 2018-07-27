@@ -51,7 +51,7 @@ public class TariffListFragment extends Fragment {
         lvTariff = view.findViewById(R.id.lv_tariff);
         fabAddMeter = view.findViewById(R.id.fab_add_tariff);
 
-        initUiComponents();
+        initAdapters();
         initListeners();
     }
 
@@ -60,7 +60,7 @@ public class TariffListFragment extends Fragment {
         this.mainContentCallback = mainContentCallback;
     }
 
-    private void initUiComponents() {
+    private void initAdapters() {
         tariffs = getTariffFromDb();
         tariffLvAdapter = new TariffLVAdapter(getContext(), mainContentCallback, tariffs);
         lvTariff.setAdapter(tariffLvAdapter);

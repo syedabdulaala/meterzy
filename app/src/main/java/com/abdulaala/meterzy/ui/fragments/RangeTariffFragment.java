@@ -48,11 +48,11 @@ public class RangeTariffFragment extends Fragment {
         rvRangeTariff = view.findViewById(R.id.rv_range_tariff);
         fabAddRangeTariff = view.findViewById(R.id.fab_add_range_tariff);
 
-        initRvRangeTariff();
-        initFabAddRangeTariff();
+        initAdapters();
+        initListeners();
     }
 
-    public void initRvRangeTariff() {
+    public void initAdapters() {
         rangeTariffs = getRangeTariffsFromDb();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -61,7 +61,7 @@ public class RangeTariffFragment extends Fragment {
         rvRangeTariff.setAdapter(rangeTariffRVAdapter);
     }
 
-    public void initFabAddRangeTariff() {
+    public void initListeners() {
         fabAddRangeTariff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
