@@ -2,8 +2,8 @@ package com.abdulaala.meterzy.ui.models;
 
 import android.graphics.drawable.Drawable;
 
-public class MenuItemModel {
-    public MenuItemModel(String name, Drawable icon) {
+public class MenuModel {
+    public MenuModel(String name, Drawable icon) {
         this.name = name;
         this.icon = icon;
     }

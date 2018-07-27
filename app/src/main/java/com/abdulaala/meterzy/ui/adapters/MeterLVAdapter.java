@@ -11,10 +11,10 @@ import android.widget.Toast;
 
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
-import com.abdulaala.meterzy.ui.models.MeterItemModel;
+import com.abdulaala.meterzy.ui.models.MeterModel;
 
-public class MeterListAdapter extends BaseAdapter {
-    public MeterListAdapter(Context context, MainContentCallback MainContentCallback, MeterItemModel[] meters) {
+public class MeterLVAdapter extends BaseAdapter {
+    public MeterLVAdapter(Context context, MainContentCallback MainContentCallback, MeterModel[] meters) {
         this.context = context;
         this.MainContentCallback = MainContentCallback;
         this.meters = meters;
@@ -58,5 +58,5 @@ public class MeterListAdapter extends BaseAdapter {
 
     private final Context context;
     private final MainContentCallback MainContentCallback;
-    private MeterItemModel[] meters;
+    private MeterModel[] meters;
 }

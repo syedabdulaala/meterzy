@@ -13,6 +13,15 @@
         android:orientation="vertical"
         android:padding="@dimen/padding_s">
 
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/size_ic_m"
+            android:layout_height="@dimen/size_ic_m"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/margin_s"
+            android:background="@color/alabaster"
+            android:src="@drawable/ic_close" />
+
         <EditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"

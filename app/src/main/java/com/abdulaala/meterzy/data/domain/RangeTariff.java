@@ -11,6 +11,16 @@ import com.abdulaala.meterzy.util.Constant;
         childColumns = "tariffId", onDelete = ForeignKey.CASCADE),
         indices = {@Index(value = {"tariffId"})})
 public final class RangeTariff {
+    public RangeTariff(int id, int tariffId, float startRange, float endRange, float charges, String name, Constant.TariffType type) {
+        this.id = id;
+        this.tariffId = tariffId;
+        this.startRange = startRange;
+        this.endRange = endRange;
+        this.charges = charges;
+        this.name = name;
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }

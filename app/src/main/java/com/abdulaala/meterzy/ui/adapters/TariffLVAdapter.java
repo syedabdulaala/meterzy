@@ -5,22 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
-import com.abdulaala.meterzy.ui.models.TariffItemModel;
+import com.abdulaala.meterzy.ui.models.TariffModel;
 
 import java.util.List;
 
-public class TariffListAdapter extends BaseAdapter {
+public class TariffLVAdapter extends BaseAdapter {
     private final Context context;
     private final MainContentCallback MainContentCallback;
-    private List<TariffItemModel> tariffs;
+    private List<TariffModel> tariffs;
 
-    public TariffListAdapter(Context context, MainContentCallback mainContentCallback, List<TariffItemModel> tariffs) {
+    public TariffLVAdapter(Context context, MainContentCallback mainContentCallback, List<TariffModel> tariffs) {
         this.context = context;
         this.MainContentCallback = mainContentCallback;
         this.tariffs = tariffs;

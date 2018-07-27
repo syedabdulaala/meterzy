@@ -2,12 +2,12 @@ package com.abdulaala.meterzy.ui.models;
 
 import com.abdulaala.meterzy.util.Constant;
 
-public class RangeTariffItemModel {
-    public RangeTariffItemModel() {
+public class RangeTariffModel {
+    public RangeTariffModel() {
 
     }
 
-    public RangeTariffItemModel(int id, String name, float startRange, float endRange, float charges, Constant.TariffType type) {
+    public RangeTariffModel(int id, String name, Float startRange, Float endRange, Float charges, Constant.TariffType type) {
         this.id = id;
         this.name = name;
         this.startRange = startRange;
@@ -32,27 +32,27 @@ public class RangeTariffItemModel {
         this.name = name;
     }
 
-    public float getStartRange() {
+    public Float getStartRange() {
         return startRange;
     }
 
-    public void setStartRange(float startRange) {
+    public void setStartRange(Float startRange) {
         this.startRange = startRange;
     }
 
-    public float getEndRange() {
+    public Float getEndRange() {
         return endRange;
     }
 
-    public void setEndRange(float endRange) {
+    public void setEndRange(Float endRange) {
         this.endRange = endRange;
     }
 
-    public float getCharges() {
+    public Float getCharges() {
         return charges;
     }
 
-    public void setCharges(float charges) {
+    public void setCharges(Float charges) {
         this.charges = charges;
     }
 
@@ -66,8 +66,8 @@ public class RangeTariffItemModel {
 
     private int id;
     private String name;
-    private float startRange;
-    private float endRange;
-    private float charges;
+    private Float startRange;
+    private Float endRange;
+    private Float charges;
     private Constant.TariffType type;
 }

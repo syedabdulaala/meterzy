@@ -12,36 +12,39 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.abdulaala.meterzy.R;
-import com.abdulaala.meterzy.ui.adapters.MeterLVAdapter;
+import com.abdulaala.meterzy.data.DataService;
+import com.abdulaala.meterzy.data.domain.Tariff;
+import com.abdulaala.meterzy.ui.adapters.TariffLVAdapter;
 import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
-import com.abdulaala.meterzy.ui.models.MeterModel;
+import com.abdulaala.meterzy.ui.models.TariffModel;
 
-public class MeterFragment extends Fragment {
-    public MeterFragment() {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TariffListFragment extends Fragment {
+    private MainContentCallback mainContentCallback;
+
+    public TariffListFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_meter, container, false);
+        return inflater.inflate(R.layout.fragment_tariff_list, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ListView lvMeter = view.findViewById(R.id.lv_meter);
-        MeterModel[] meters = new MeterModel[3];
-        meters[0] = new MeterModel(1, "Electric");
-        meters[1] = new MeterModel(1, "Gas");
-        meters[2] = new MeterModel(1, "Sewerage");
-        lvMeter.setAdapter(new MeterLVAdapter(getContext(), mainContentCallback, meters));
+        ListView lvTariff = view.findViewById(R.id.lv_tariff);
+        lvTariff.setAdapter(new TariffLVAdapter(getContext(), mainContentCallback, getDataFromDb()));
 
-        FloatingActionButton fabAddMeter = view.findViewById(R.id.fab_add_meter);
+        FloatingActionButton fabAddMeter = view.findViewById(R.id.fab_add_tariff);
         fabAddMeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddMeterFragment fragment = new AddMeterFragment();
+                TariffFragment fragment = new TariffFragment();
                 fragment.setMainContentCallback(mainContentCallback);
                 mainContentCallback.replaceMainContent(fragment);
             }
@@ -52,5 +55,16 @@ public class MeterFragment extends Fragment {
         this.mainContentCallback = mainContentCallback;
     }
 
-    private MainContentCallback mainContentCallback;
+    private List<TariffModel> getDataFromDb() {
+        List<Tariff> tariffs = DataService.getAppDb()
+                .tariffRepo()
+                .getAll();
+        List<TariffModel> data = new ArrayList<>();
+        for (Tariff tariff : tariffs) {
+            data.add(new TariffModel(tariff.getId(), tariff.getName()));
+        }
+        return data;
+    }
+
+
 }

@@ -2,10 +2,10 @@ package com.abdulaala.meterzy.ui.models;
 
 import com.abdulaala.meterzy.util.Constant;
 
-public class FixedTariffItemModel {
-    public FixedTariffItemModel(){}
+public class FixedTariffModel {
+    public FixedTariffModel(){}
 
-    public FixedTariffItemModel(int id, String name, float charges, Constant.TariffType type) {
+    public FixedTariffModel(int id, String name, float charges, Constant.TariffType type) {
         this.id = id;
         this.name = name;
         this.charges = charges;

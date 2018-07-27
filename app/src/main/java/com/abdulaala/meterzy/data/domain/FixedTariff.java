@@ -15,6 +15,14 @@ public final class FixedTariff {
         return id;
     }
 
+    public FixedTariff(int id, int tariffId, float charges, String name, Constant.TariffType type) {
+        this.id = id;
+        this.tariffId = tariffId;
+        this.charges = charges;
+        this.name = name;
+        this.type = type;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

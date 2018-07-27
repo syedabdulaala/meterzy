@@ -9,13 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.abdulaala.meterzy.R;
-import com.abdulaala.meterzy.ui.models.MenuItemModel;
+import com.abdulaala.meterzy.ui.models.MenuModel;
 
-public class MenuGridAdapter extends BaseAdapter {
+public class MenuGVAdapter extends BaseAdapter {
     private Context context;
-    private MenuItemModel[] menuItems;
+    private MenuModel[] menuItems;
 
-    public MenuGridAdapter(Context context, MenuItemModel[] menuItems) {
+    public MenuGVAdapter(Context context, MenuModel[] menuItems) {
         this.context = context;
         this.menuItems = menuItems;
     }

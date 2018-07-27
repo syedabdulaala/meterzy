@@ -2,8 +2,8 @@ package com.abdulaala.meterzy.ui.models;
 
 import java.util.Date;
 
-public class MeterItemModel {
-    public MeterItemModel(int id, String name) {
+public class MeterModel {
+    public MeterModel(int id, String name) {
         this.id = id;
         this.name = name;
     }

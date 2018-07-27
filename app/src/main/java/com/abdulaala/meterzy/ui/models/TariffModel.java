@@ -1,7 +1,7 @@
 package com.abdulaala.meterzy.ui.models;
 
-public class TariffItemModel {
-    public TariffItemModel(int id, String name) {
+public class TariffModel {
+    public TariffModel(int id, String name) {
         this.id = id;
         this.name = name;
     }

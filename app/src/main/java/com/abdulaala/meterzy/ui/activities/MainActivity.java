@@ -3,7 +3,6 @@ package com.abdulaala.meterzy.ui.activities;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.View;
@@ -13,11 +12,10 @@ import android.widget.LinearLayout;
 
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.BaseActivity;
-import com.abdulaala.meterzy.ui.adapters.MenuGridAdapter;
-import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
+import com.abdulaala.meterzy.ui.adapters.MenuGVAdapter;
 import com.abdulaala.meterzy.ui.fragments.MeterFragment;
-import com.abdulaala.meterzy.ui.fragments.TariffFragment;
-import com.abdulaala.meterzy.ui.models.MenuItemModel;
+import com.abdulaala.meterzy.ui.fragments.TariffListFragment;
+import com.abdulaala.meterzy.ui.models.MenuModel;
 import com.abdulaala.meterzy.util.Constant;
 
 public class MainActivity extends BaseActivity{
@@ -32,16 +30,16 @@ public class MainActivity extends BaseActivity{
 
     private void initMenuGridView() {
 
-        final MenuItemModel[] menuItems = new MenuItemModel[6];
-        menuItems[Constant.MENU_DASHBOARD] = new MenuItemModel("Dashboard", ContextCompat.getDrawable(this, R.drawable.ic_dashboard));
-        menuItems[Constant.MENU_METERS] = new MenuItemModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
-        menuItems[Constant.MENU_TARIFFS] = new MenuItemModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
-        menuItems[Constant.MENU_SETTINGS] = new MenuItemModel("Setting", ContextCompat.getDrawable(this, R.drawable.ic_setting));
-        menuItems[Constant.MENU_ABOUT] = new MenuItemModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
-        menuItems[Constant.MENU_EXIT] = new MenuItemModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
+        final MenuModel[] menuItems = new MenuModel[6];
+        menuItems[Constant.MENU_DASHBOARD] = new MenuModel("Dashboard", ContextCompat.getDrawable(this, R.drawable.ic_dashboard));
+        menuItems[Constant.MENU_METERS] = new MenuModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
+        menuItems[Constant.MENU_TARIFFS] = new MenuModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
+        menuItems[Constant.MENU_SETTINGS] = new MenuModel("Setting", ContextCompat.getDrawable(this, R.drawable.ic_setting));
+        menuItems[Constant.MENU_ABOUT] = new MenuModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
+        menuItems[Constant.MENU_EXIT] = new MenuModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
 
         GridView gv = findViewById(R.id.gv_menu);
-        gv.setAdapter(new MenuGridAdapter(this, menuItems));
+        gv.setAdapter(new MenuGVAdapter(this, menuItems));
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -79,9 +77,9 @@ public class MainActivity extends BaseActivity{
                 replaceMainContent(meterFragment);
                 break;
             case Constant.MENU_TARIFFS:
-                TariffFragment tariffFragment = new TariffFragment();
-                tariffFragment.setMainContentCallback(this);
-                replaceMainContent(tariffFragment);
+                TariffListFragment tariffListFragment = new TariffListFragment();
+                tariffListFragment.setMainContentCallback(this);
+                replaceMainContent(tariffListFragment);
                 break;
             case Constant.MENU_EXIT:
                 dialog.setTitle("Exit Confirmation");
