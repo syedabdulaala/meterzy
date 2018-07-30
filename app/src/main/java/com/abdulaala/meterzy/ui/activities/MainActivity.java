@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.BaseActivity;
 import com.abdulaala.meterzy.ui.adapters.MenuGVAdapter;
-import com.abdulaala.meterzy.ui.fragments.MeterFragment;
+import com.abdulaala.meterzy.ui.fragments.MeterListFragment;
 import com.abdulaala.meterzy.ui.fragments.TariffListFragment;
 import com.abdulaala.meterzy.ui.models.MenuModel;
 import com.abdulaala.meterzy.util.Constant;
@@ -72,9 +72,9 @@ public class MainActivity extends BaseActivity{
     private void changeMenu(int i) {
         switch (i) {
             case Constant.MENU_METERS:
-                MeterFragment meterFragment = new MeterFragment();
-                meterFragment.setMainContentCallback(this);
-                replaceMainContent(meterFragment);
+                MeterListFragment meterListFragment = new MeterListFragment();
+                meterListFragment.setMainContentCallback(this);
+                replaceMainContent(meterListFragment);
                 break;
             case Constant.MENU_TARIFFS:
                 TariffListFragment tariffListFragment = new TariffListFragment();

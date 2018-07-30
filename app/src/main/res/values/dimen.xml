@@ -15,6 +15,7 @@
 
     <!--Padding-->
     <dimen name="padding_s">10dp</dimen>
+    <dimen name="padding_m">20dp</dimen>
 
     <!--Heights-->
     <dimen name="height_s">10dp</dimen>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/alabaster"
-    tools:context=".ui.fragments.MeterFragment">
+    tools:context=".ui.fragments.MeterListFragment">
 
     <ListView
         android:id="@+id/lv_tariff"

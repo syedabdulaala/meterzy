@@ -1,26 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/alabaster"
-    tools:context=".ui.fragments.MeterFragment">
+    android:background="@color/wedgewood_50">
 
-    <ListView
-        android:id="@+id/lv_meter"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_add_meter"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/margin_m"
-        android:backgroundTint="@color/alabaster"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_plus"
-        app:fabCustomSize="@dimen/size_fab" />
+        android:layout_centerVertical="true"
+        android:background="@color/alabaster"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_s">
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_s"
+            android:hint="@string/lb_name"
+            android:inputType="textNoSuggestions" />
+
+        <EditText
+            android:id="@+id/et_consumer_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_s"
+            android:hint="@string/lb_consumer_no"
+            android:inputType="textNoSuggestions" />
+
+        <EditText
+            android:id="@+id/et_account_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_s"
+            android:hint="@string/lb_account_no"
+            android:inputType="textNoSuggestions" />
+
+        <EditText
+            android:id="@+id/etSpnr_tariff"
+            android:inputType="none"
+            android:background="@drawable/bg_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_s"
+            android:hint="@string/lb_tariff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@drawable/bg_button"
+                android:text="@string/lb_save" />
+
+            <Space
+                android:layout_width="@dimen/spacing_s"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@drawable/bg_button"
+                android:text="@string/lb_cancel" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
+
+
