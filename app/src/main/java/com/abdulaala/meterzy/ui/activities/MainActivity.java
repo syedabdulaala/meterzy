@@ -1,22 +1,24 @@
 package com.abdulaala.meterzy.ui.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.BaseActivity;
-import com.abdulaala.meterzy.ui.adapters.MenuGridAdapter;
-import com.abdulaala.meterzy.ui.models.MenuItemModel;
+import com.abdulaala.meterzy.ui.adapters.MenuGVAdapter;
+import com.abdulaala.meterzy.ui.fragments.MeterListFragment;
+import com.abdulaala.meterzy.ui.fragments.TariffListFragment;
+import com.abdulaala.meterzy.ui.models.MenuModel;
+import com.abdulaala.meterzy.util.Constant;
 
-public class MainActivity extends BaseActivity {
-
+public class MainActivity extends BaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,15 +29,24 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initMenuGridView() {
-        MenuItemModel[] menuItems = new MenuItemModel[5];
-        menuItems[0] = new MenuItemModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
-        menuItems[1] = new MenuItemModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
-        menuItems[2] = new MenuItemModel("Settings", ContextCompat.getDrawable(this, R.drawable.ic_setting));
-        menuItems[3] = new MenuItemModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
-        menuItems[4] = new MenuItemModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
+
+        final MenuModel[] menuItems = new MenuModel[6];
+        menuItems[Constant.MENU_DASHBOARD] = new MenuModel("Dashboard", ContextCompat.getDrawable(this, R.drawable.ic_dashboard));
+        menuItems[Constant.MENU_METERS] = new MenuModel("Meters", ContextCompat.getDrawable(this, R.drawable.ic_meter));
+        menuItems[Constant.MENU_TARIFFS] = new MenuModel("Tariffs", ContextCompat.getDrawable(this, R.drawable.ic_money));
+        menuItems[Constant.MENU_SETTINGS] = new MenuModel("Setting", ContextCompat.getDrawable(this, R.drawable.ic_setting));
+        menuItems[Constant.MENU_ABOUT] = new MenuModel("About", ContextCompat.getDrawable(this, R.drawable.ic_info));
+        menuItems[Constant.MENU_EXIT] = new MenuModel("Exit", ContextCompat.getDrawable(this, R.drawable.ic_exit));
 
         GridView gv = findViewById(R.id.gv_menu);
-        gv.setAdapter(new MenuGridAdapter(this, menuItems));
+        gv.setAdapter(new MenuGVAdapter(this, menuItems));
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                changeMenu(i);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
     }
 
     private void initMenuBottomSheet() {
@@ -45,7 +56,6 @@ public class MainActivity extends BaseActivity {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
         //Toggle
-        final ImageView ivMenuToggle = findViewById(R.id.iv_menu_toggle);
         CardView cvMenuToggle = findViewById(R.id.cv_menu_toggle);
         cvMenuToggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,20 +67,32 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if(newState == BottomSheetBehavior.STATE_EXPANDED)
-                    ivMenuToggle.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_down_arrow_a));
-                else if(newState == BottomSheetBehavior.STATE_COLLAPSED)
-                    ivMenuToggle.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_up_arrow_a));
-            }
+    }
 
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });
+    private void changeMenu(int i) {
+        switch (i) {
+            case Constant.MENU_METERS:
+                MeterListFragment meterListFragment = new MeterListFragment();
+                meterListFragment.setMainContentCallback(this);
+                replaceMainContent(meterListFragment);
+                break;
+            case Constant.MENU_TARIFFS:
+                TariffListFragment tariffListFragment = new TariffListFragment();
+                tariffListFragment.setMainContentCallback(this);
+                replaceMainContent(tariffListFragment);
+                break;
+            case Constant.MENU_EXIT:
+                dialog.setTitle("Exit Confirmation");
+                dialog.setMessage("Are you sure you want to close application?");
+                dialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setNegativeButton("NO", null);
+                dialog.show();
+        }
     }
 
     //UI Components

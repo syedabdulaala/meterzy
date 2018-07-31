@@ -5,12 +5,22 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.abdulaala.meterzy.util.Constant;
+
 @Entity(foreignKeys = @ForeignKey(entity = Tariff.class, parentColumns = "id",
         childColumns = "tariffId", onDelete = ForeignKey.CASCADE),
         indices = {@Index(value = {"tariffId"})})
-public class FixedTariff {
+public final class FixedTariff {
     public int getId() {
         return id;
+    }
+
+    public FixedTariff(int id, int tariffId, float charges, String name, Constant.TariffType type) {
+        this.id = id;
+        this.tariffId = tariffId;
+        this.charges = charges;
+        this.name = name;
+        this.type = type;
     }
 
     public void setId(int id) {
@@ -25,12 +35,12 @@ public class FixedTariff {
         this.tariffId = tariffId;
     }
 
-    public float getAmount() {
-        return amount;
+    public float getCharges() {
+        return charges;
     }
 
-    public void setAmount(float amount) {
-        this.amount = amount;
+    public void setCharges(float charges) {
+        this.charges = charges;
     }
 
     public String getName() {
@@ -41,9 +51,18 @@ public class FixedTariff {
         this.name = name;
     }
 
+    public Constant.TariffType getType() {
+        return type;
+    }
+
+    public void setType(Constant.TariffType type) {
+        this.type = type;
+    }
+
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int tariffId;
-    private float amount;
+    private float charges;
     private String name;
+    private Constant.TariffType type;
 }

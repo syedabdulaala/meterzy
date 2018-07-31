@@ -8,13 +8,15 @@ import android.arch.persistence.room.Update;
 import com.abdulaala.meterzy.data.domain.RangeTariff;
 import com.abdulaala.meterzy.data.domain.Tariff;
 
+import java.util.List;
+
 @Dao
 public interface TariffRepo {
     @Query("select * from Tariff where id = :id limit 1;")
     Tariff get(int id);
 
     @Query("select * from tariff;")
-    Tariff getAll();
+    List<Tariff> getAll();
 
     @Insert
     long insert(Tariff tariff);

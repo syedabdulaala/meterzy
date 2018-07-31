@@ -26,4 +26,7 @@ public interface FixedTariffRepo {
 
     @Query("delete from FixedTariff where id = :id;")
     void delete(int id);
+
+    @Query("delete from FixedTariff where tariffId = :tariffId;")
+    void deleteAll(int tariffId);
 }

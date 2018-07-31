@@ -11,9 +11,11 @@
 
     <!--Margins-->
     <dimen name="margin_s">10dp</dimen>
+    <dimen name="margin_m">20dp</dimen>
 
     <!--Padding-->
     <dimen name="padding_s">10dp</dimen>
+    <dimen name="padding_m">20dp</dimen>
 
     <!--Heights-->
     <dimen name="height_s">10dp</dimen>
@@ -23,5 +25,10 @@
     <dimen name="height_xxl">50dp</dimen>
 
     <!--Sizes-->
-    <dimen name="size_menu_item_iv">75dp</dimen>
+    <dimen name="size_menu_item_iv_s">70dp</dimen>
+    <dimen name="size_menu_item_iv_xs">50dp</dimen>
+    <dimen name="size_fab">54dp</dimen>
+    <dimen name="size_ic_s">12.5dp</dimen>
+    <dimen name="size_ic_m">25dp</dimen>
+    <dimen name="size_ic_l">50dp</dimen>
 </resources>

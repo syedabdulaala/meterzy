@@ -26,4 +26,7 @@ public interface RangeTariffRepo {
 
     @Query("delete from RangeTariff where id = :id;")
     void delete(int id);
+
+    @Query("delete from RangeTariff where tariffId = :tariffId;")
+    void deleteAll(int tariffId);
 }

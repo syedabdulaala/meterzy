@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/iv_menu"
-            android:layout_width="@dimen/size_menu_item_iv"
-            android:layout_height="@dimen/size_menu_item_iv"
+            android:layout_width="@dimen/size_menu_item_iv_s"
+            android:layout_height="@dimen/size_menu_item_iv_s"
             android:layout_gravity="center"
             android:contentDescription="@string/content_description_image"
             android:src="@drawable/ic_dummy_image" />

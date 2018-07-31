@@ -5,6 +5,12 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public final class Tariff {
+    public Tariff(int id, String name, String currency) {
+        this.id = id;
+        this.name = name;
+        this.currency = currency;
+    }
+
     public int getId() {
         return id;
     }

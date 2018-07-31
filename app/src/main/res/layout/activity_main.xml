@@ -7,7 +7,14 @@
     android:background="@color/alabaster"
     tools:context=".ui.activities.MainActivity">
 
+    <!--Main content-->
+    <FrameLayout
+        android:id="@+id/fl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/height_xl"/>
 
+    <!--Bottom sheet-->
     <LinearLayout
         android:id="@+id/ll_menu"
         android:layout_width="match_parent"
@@ -20,7 +27,7 @@
             android:id="@+id/cv_menu_toggle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_xl"
-            android:backgroundTint="@color/alabaster"
+            android:backgroundTint="@color/catskill_white"
             app:cardElevation="@dimen/elev_s">
 
             <ImageView
@@ -28,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_up_arrow_a" />
+                android:src="@drawable/ic_menu" />
         </android.support.v7.widget.CardView>
 
         <GridView

@@ -4,4 +4,10 @@
     <color name="atoll">#0C5975</color>
     <color name="jumbo">#7E7F82</color>
     <color name="alabaster">#F9F9F9</color>
+    <color name="catskill_white">#E4ECF1</color>
+    <color name="cape_cod">#454E4F</color>
+    <color name="wedgewood_50">#80517E9A</color>
+    <color name="jumbo_50">#807E7F82</color>
+    <color name="gray">#828282</color>
+    <color name="jumbo_10">#19969696</color>
 </resources>
