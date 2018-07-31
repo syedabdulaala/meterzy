@@ -36,4 +36,7 @@ public interface MeterReadingRepo {
 
     @Query("delete from MeterReading where id = :id;")
     void delete(int id);
+
+    @Query("delete from MeterReading where meterId = :meterId;")
+    void deleteAll(int meterId);
 }

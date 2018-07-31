@@ -29,7 +29,7 @@ public class TariffLVAdapter extends BaseAdapter {
         this.context = context;
         this.MainContentCallback = mainContentCallback;
         this.tariffs = tariffs;
-        dialog = new AlertDialog.Builder(context);
+        this.dialog = new AlertDialog.Builder(context);
     }
 
     //Function(s)
