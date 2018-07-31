@@ -13,8 +13,15 @@ import com.abdulaala.meterzy.R;
 import com.abdulaala.meterzy.ui.callbacks.MainContentCallback;
 import com.abdulaala.meterzy.ui.models.MeterModel;
 
+import java.util.List;
+
 public class MeterLVAdapter extends BaseAdapter {
-    public MeterLVAdapter(Context context, MainContentCallback MainContentCallback, MeterModel[] meters) {
+    //Variable(s)
+    private final Context context;
+    private final MainContentCallback MainContentCallback;
+    private List<MeterModel> meters;
+
+    public MeterLVAdapter(Context context, MainContentCallback MainContentCallback, List<MeterModel> meters) {
         this.context = context;
         this.MainContentCallback = MainContentCallback;
         this.meters = meters;
@@ -22,17 +29,17 @@ public class MeterLVAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return meters.length;
+        return meters != null ? meters.size() : 0;
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return meters != null ? meters.get(i) : null;
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return meters != null ? meters.get(i).getId() : -1;
     }
 
     @Override
@@ -44,12 +51,8 @@ public class MeterLVAdapter extends BaseAdapter {
         view = inflater.inflate(R.layout.item_meter, null);
 
         TextView tvMeter = view.findViewById(R.id.tv_meter);
-        tvMeter.setText(meters[i].getName());
+        tvMeter.setText(meters.get(i).getName());
 
         return view;
     }
-
-    private final Context context;
-    private final MainContentCallback MainContentCallback;
-    private MeterModel[] meters;
 }

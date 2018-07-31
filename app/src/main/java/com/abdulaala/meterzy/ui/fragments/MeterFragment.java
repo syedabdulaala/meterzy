@@ -56,12 +56,6 @@ public class MeterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if (getArguments() != null) {
-            meter.setId(getArguments().getInt(BundleKey.METER_ID, -1););
-            if(meter.getId() != -1)
-                meter = getMeterFromDb(meter.getId());
-        }
-
         etName = view.findViewById(R.id.et_name);
         etConsumerNo = view.findViewById(R.id.et_consumer_no);
         etAccountNo = view.findViewById(R.id.et_account_no);
@@ -69,6 +63,7 @@ public class MeterFragment extends Fragment {
         btnSave = view.findViewById(R.id.btn_save);
         btnCancel = view.findViewById(R.id.btn_cancel);
 
+        populateData();
         initListeners();
     }
 
@@ -185,7 +180,7 @@ public class MeterFragment extends Fragment {
     }
 
     private void saveToDb() {
-        if (meter.getId() == -1) {
+        if (meter.getId() == 0) {
             DataService.getAppDb()
                     .meterRepo()
                     .insert(new Meter(0, meter.getTariffId(), meter.getName(), meter.getConsumerNo(),
@@ -212,5 +207,24 @@ public class MeterFragment extends Fragment {
                 .get(id);
         return new MeterModel(meter.getId(), meter.getTariffId(), meter.getName(), meter.getAccountNo(),
                 meter.getConsumerNo());
+    }
+
+    private void populateData() {
+        if (getArguments() != null) {
+            meter.setId(getArguments().getInt(BundleKey.METER_ID, 0));
+            if (meter.getId() != 0) {
+                meter = getMeterFromDb(meter.getId());
+                getTariffFromDb();
+                etName.setText(meter.getName());
+                etAccountNo.setText(meter.getAccountNo());
+                etConsumerNo.setText(meter.getConsumerNo());
+                for (int i = 0; i < tariffs.size(); i++) {
+                    if (tariffs.get(i).getId() == meter.getTariffId()) {
+                        tariffs.get(i).setSelected(true);
+                        etSpnrTariff.setText(tariffs.get(i).getName());
+                    }
+                }
+            }
+        }
     }
 }
