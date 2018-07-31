@@ -9,6 +9,14 @@ import android.arch.persistence.room.PrimaryKey;
         childColumns = "tariffId", onDelete = ForeignKey.SET_NULL),
         indices = {@Index(value = {"tariffId"})})
 public final class Meter {
+    public Meter(int id, Integer tariffId, String name, String consumerNo, String accountNo) {
+        this.id = id;
+        this.tariffId = tariffId;
+        this.name = name;
+        this.consumerNo = consumerNo;
+        this.accountNo = accountNo;
+    }
+
     public int getId() {
         return id;
     }
