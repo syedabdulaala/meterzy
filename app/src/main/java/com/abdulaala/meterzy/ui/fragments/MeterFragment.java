@@ -56,8 +56,11 @@ public class MeterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if (getArguments() == null)
-            meter.setId(getArguments().getInt(BundleKey.METER_ID, -1));
+        if (getArguments() != null) {
+            meter.setId(getArguments().getInt(BundleKey.METER_ID, -1););
+            if(meter.getId() != -1)
+                meter = getMeterFromDb(meter.getId());
+        }
 
         etName = view.findViewById(R.id.et_name);
         etConsumerNo = view.findViewById(R.id.et_consumer_no);
@@ -201,5 +204,13 @@ public class MeterFragment extends Fragment {
         MeterListFragment fragment = new MeterListFragment();
         fragment.setMainContentCallback(mainContentCallback);
         mainContentCallback.replaceMainContent(fragment);
+    }
+
+    private MeterModel getMeterFromDb(int id) {
+        Meter meter = DataService.getAppDb()
+                .meterRepo()
+                .get(id);
+        return new MeterModel(meter.getId(), meter.getTariffId(), meter.getName(), meter.getAccountNo(),
+                meter.getConsumerNo());
     }
 }
